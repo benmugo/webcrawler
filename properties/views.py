@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponse
 import json
 from .models import Properties
+
 # Create your views here.
 # Create your views here.
 def home(request):
@@ -19,3 +20,6 @@ def home(request):
     else:
         all_props=Properties.objects.all()
         return render(request,"index.html",{'my_properties':all_props},None)
+
+#def crawl (request):
+    #if request.method=="POST":
