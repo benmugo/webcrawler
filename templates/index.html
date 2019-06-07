@@ -1,23 +1,23 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>Real Estate</title>
-</head>
-<body>
+﻿{% extends "base.html" %}
+{% block content %}
     <div class="container">
-        Welcome to THE REALTORS
+        <h1>Welcome to THE REALTORS</h1>
         <form action="" method="POST">
             {% csrf_token %}
+            <input type="text" name="url" id="" class="form-control" placeholder="Enter url to crawl...">
             <button type="submit">crawl</button>
         </form>
         {% for prop in my_properties %}
-            {{prop}}
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{prop}}</h5>
+                    <p class="card-text">{{prop.location}}</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
         {% endfor %}
     </div>
-</body>
-</html>
+{% endblock content %}
+
